@@ -1,4 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+
+# Virtual environments
 .venv/
+venv/
+ENV/
+
+# Environment variables
+.env
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# RAG artifacts (DO NOT COMMIT)
 chroma_db/
 bm25_index.pkl
-.gitignore
+
+# Tests
+.pytest_cache/
