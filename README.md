@@ -1,4 +1,4 @@
-# Docs RAG Demo (OpenAI embeddings + LLM)
+# AI Documentation System with RAG (OpenAI)
 
 This repo is a tiny, deployable reference implementation for the tutorial sections:
 
