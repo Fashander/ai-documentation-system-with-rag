@@ -1,2 +1,4 @@
 .venv/
 chroma_db/
+bm25_index.pkl
+.gitignore
