@@ -1,5 +1,7 @@
 # AI Documentation System with RAG (OpenAI)
 
+This is a demo implementation based on the [Building Trustworthy Documentation Systems with RAG](https://alexanderfashakin.substack.com/p/building-trustworthy-documentation-rag-systems?r=6iwqvq) tutorial.
+
 This repo is a tiny, deployable reference implementation for the tutorial sections:
 
 - **Ingestion**: Markdown header-aware splitting + overlap
