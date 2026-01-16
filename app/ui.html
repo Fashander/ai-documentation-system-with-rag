@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Docs RAG Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: auto; }
+    textarea { width: 100%; height: 80px; }
+    button { padding: 10px; margin-top: 10px; }
+    pre { background: #f4f4f4; padding: 10px; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word;}
+  </style>
+</head>
+<body>
+
+<h2>Trustworthy Docs RAG Demo</h2>
+
+<textarea id="q" placeholder="Ask a documentation question..."></textarea>
+<br>
+<button onclick="ask()">Ask</button>
+
+<h3>Answer</h3>
+<pre id="answer"></pre>
+
+<!-- <h3>Citations</h3>
+<pre id="sources"></pre> -->
+
+<script>
+async function ask() {
+  const q = document.getElementById("q").value;
+  const res = await fetch("/ask", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ query: q })
+  });
+  const data = await res.json();
+  document.getElementById("answer").innerText = data.answer;
+  document.getElementById("sources").innerText =
+    data.used_chunks.map(
+      c => `${c.source} → ${c.section_path}`
+    ).join("\n");
+}
+</script>
+
+</body>
+</html>

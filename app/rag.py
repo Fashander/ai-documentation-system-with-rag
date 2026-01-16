@@ -165,7 +165,13 @@ def answer_question(query: str) -> dict:
     llm = ChatOpenAI(model=settings.openai_chat_model, temperature=0)
 
     user_prompt = f"""Answer the question based strictly on the context below.
-Always cite the 'Source' provided for each chunk.
+Always cite the 'Source' provided for each chunk. When citing sources:
+- Cite only the document name and section path.
+- Do NOT include internal identifiers such as chunk IDs or hashes.
+- Use this format exactly:
+
+(Source: <document> → <section path>)
+
 
 {context}
 

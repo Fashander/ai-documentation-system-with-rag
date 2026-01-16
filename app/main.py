@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
+from pathlib import Path
 from pydantic import BaseModel
 
 from .ingest import run_ingest
@@ -27,3 +29,7 @@ def ask(req: AskRequest):
         return answer_question(req.query)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/", response_class=HTMLResponse)
+def ui():
+    return Path("app/ui.html").read_text()
